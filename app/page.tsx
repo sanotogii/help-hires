@@ -110,8 +110,6 @@ export default function TeamPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const [first, ...rest] = selected ? selected.name.split(" ") : [""];
-
   return (
     <div>
       <header className="page-head">
@@ -146,9 +144,9 @@ export default function TeamPage() {
             </div>
             <dl className="pcard-fields">
               <dt>Nom</dt>
-              <dd>{rest.join(" ") || first}</dd>
+              <dd>{selected.lastName || "—"}</dd>
               <dt>Prénom</dt>
-              <dd>{first}</dd>
+              <dd>{selected.firstName || "—"}</dd>
               <dt>Poste</dt>
               <dd>{selected.role}</dd>
               <dt>Équipe</dt>
